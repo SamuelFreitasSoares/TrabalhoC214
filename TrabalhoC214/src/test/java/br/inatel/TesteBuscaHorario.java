@@ -107,59 +107,89 @@ public class TesteBuscaHorario {
     @Test
     public void testaBuscaHorarioChrisNomeErrado() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(1);
-        assertEquals("Christiano", horario.getNomeDoProfessor()); // Nome incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals("Christiano", horario.getNomeDoProfessor()); // Nome incorreto
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioRenzoHorarioErrado() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(2);
-        assertEquals("Segunda-feira das 10h às 12h", horario.getHorarioDeAtendimento()); // Horário incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals("Segunda-feira das 10h às 12h", horario.getHorarioDeAtendimento()); // Horário incorreto
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioRenanPeriodoErrado() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(3);
-        assertEquals("2024.2", horario.getPeriodo()); // Período incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals("2024.2", horario.getPeriodo()); // Período incorreto
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioMarceloSalaErrada() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(4);
-        assertEquals("A-101", horario.getSala()); // Sala incorreta
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals("A-101", horario.getSala()); // Sala incorreta
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioInexistenteNomeErrado() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(999);
-        assertEquals("Professor", horario.getNomeDoProfessor()); // Nome incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals("Professor", horario.getNomeDoProfessor()); // Nome incorreto
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioChrisPredioErrado() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(1);
-        assertEquals(2, (int) horario.getPredio().get(0)); // Prédio incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals(2, (int) horario.getPredio().get(0)); // Prédio incorreto
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaHorarioExistenteInvalido() {
-        assertTrue(horarioService.horarioExistente(999)); // Deve falhar, pois o horário não existe
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertTrue(horarioService.horarioExistente(999)); // Deve falhar, pois o horário não existe
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaTodosHorariosComErro() {
         String horarios = horarioService.findAll();
-        assertTrue(horarios.contains("João")); // Nome incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertTrue(horarios.contains("João")); // Nome incorreto
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioRenzoSalaErrada() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(2);
-        assertEquals("A-101", horario.getSala()); // Sala incorreta
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals("A-101", horario.getSala()); // Sala incorreta
+        });
+        assertNotNull(thrown);
     }
 
     @Test
     public void testaBuscaHorarioRenanPredioErrado() {
         horarioDeAtendimento horario = buscaHorarioDeAtendimento.buscaHorarioDeAtendimento(3);
-        assertEquals(1, (int) horario.getPredio().get(0)); // Prédio incorreto
+        AssertionError thrown = assertThrows(AssertionError.class, () -> {
+            assertEquals(1, (int) horario.getPredio().get(0)); // Prédio incorreto
+        });
+        assertNotNull(thrown);
     }
 }

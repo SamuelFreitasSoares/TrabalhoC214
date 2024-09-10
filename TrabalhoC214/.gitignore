@@ -1,4 +1,5 @@
 .idea
 pom.xml
 resources
+src/target
 target
